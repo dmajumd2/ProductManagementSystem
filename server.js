@@ -1,5 +1,14 @@
-    [
-    {
+var express = require('express'),
+app = express(),
+cors = require('cors');
+
+app.use(cors({
+    origin:'http://localhost:4200'
+}));
+
+app.get('/getproducts', function(req, res){
+    res.send([
+        {
         "productId": 1,
         "productName": "Leaf Rake",
         "productCode": "GDN-0011",
@@ -8,7 +17,7 @@
         "price": 19.95,
         "starRating": 3.2,
         "imageUrl": "http://openclipart.org/image/300px/svg_to_png/26215/Anonymous_Leaf_Rake.png"
-    },
+      },
     {
         "productId": 2,
         "productName": "Garden Cart",
@@ -49,4 +58,10 @@
         "starRating": 4.6,
         "imageUrl": "http://openclipart.org/image/300px/svg_to_png/120337/xbox-controller_01.png"
     }
-]
+  ]);
+});
+
+
+app.listen(3000, function(){
+    console.log("Server running @ localhost:3000")
+});
