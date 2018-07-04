@@ -25,12 +25,17 @@
           <td>
             <img *ngIf="showHideImg" [src]="product.imageUrl" style="width: 50px;">
           </td>
-          <td>{{product.productName}}</td>
+          <td>
+            <a href="#" [routerLink]="['/products', product.productCode]">
+            {{product.productName}}
+            </a>
+          </td>
           <td>{{product.productCode}}</td>
           <td>{{product.price}}</td>
-          <td>{{product.starRating}}</td>
+          <td>
+            <app-rating [rating]="product.starRating" (ratingToParent) = "ratingFnParent($event)"></app-rating>
+          </td>        
         </tr>
-
     </table>
   </div>
 </div>

@@ -21,6 +21,10 @@ export class ProductsComponent implements OnInit {
     this.showHideImg = !this.showHideImg;
   }
 
+  ratingFnParent(data: string){
+    console.log(data);
+  }
+
   ngOnInit() {
     this._productService.getProducts().subscribe((data)=>{
       this.products = data;
