@@ -1,3 +1,5 @@
+<app-navigation></app-navigation>
+<div class="container">
 <div class="panel panel-primary">
   <div class="panel-heading">{{pageTitle}}</div>
   <div class="panel-body">
@@ -23,19 +25,20 @@
 
         <tr *ngFor="let product of products | products:filterBy">
           <td>
-            <img *ngIf="showHideImg" [src]="product.imageUrl" style="width: 50px;">
+            <img *ngIf="showHideImg" [src]="product?.imageUrl" style="width: 50px;">
           </td>
           <td>
             <a href="#" [routerLink]="['/products', product.productCode]">
-            {{product.productName}}
+            {{product?.productName}}
             </a>
           </td>
-          <td>{{product.productCode}}</td>
-          <td>{{product.price}}</td>
+          <td>{{product?.productCode}}</td>
+          <td>{{product?.price}}</td>
           <td>
-            <app-rating [rating]="product.starRating" (ratingToParent) = "ratingFnParent($event)"></app-rating>
+            <app-rating [rating]="product?.starRating" (ratingToParent) = "ratingFnParent($event)"></app-rating>
           </td>        
         </tr>
     </table>
   </div>
+</div>
 </div>

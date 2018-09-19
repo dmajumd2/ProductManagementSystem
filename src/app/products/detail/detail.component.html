@@ -1,3 +1,32 @@
+<app-navigation></app-navigation>
+<div class="container">
 <div>
-  <button class="btn btn-primary" (click)="backToList()">Back to List</button>
+    <div class="panel panel-primary">
+        <div class="panel-heading">Product Detail</div>
+        <div class="panel-body">
+        <table>
+            <th colspan="2"></th>
+         <tr> <td>Name:  {{ productDetails?.productName }}</td></tr>
+         <tr> <td>Code:  {{ productDetails?.productCode }}</td></tr>
+         <tr>
+            <td>Description:  {{ productDetails?.description }}</td>
+          </tr>
+         <tr> <td>Availability:  {{ productDetails?.releaseDate }}</td></tr>
+         <tr><td> Price:  {{ productDetails?.price }}</td></tr>
+         <tr><td> Rating: {{ productDetails?.starRating }}</td></tr>
+          
+         <tr style="float: right;">
+            <td>
+                <img [src]="productDetails?.imageUrl" style="width: 110px;">
+            </td>
+         </tr>
+      
+         
+        </table>
+      </div>
+        <button class="btn btn-primary" (click)="backToList()">Back to List</button>    
+    </div>    
 </div>
+</div>
+
+

@@ -1,0 +1,82 @@
+<app-navigation></app-navigation>
+<div class="container" style="margin-top: 50px;">
+  <div class="panel panel-primary">
+    <div class="panel-heading"> Create Products </div>
+    <div class="panel-body">
+
+    <form [formGroup]="userForm">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="name" class="form-control"
+             placeholder="Name" formControlName = 'name' [(ngModel)]="productform.name" name="name">
+            <div *ngIf="!userForm.get('name').valid && (userForm.get('name').touched)">
+              <div class="alert alert-danger" *ngIf="userForm.get('name').errors.required">Please Enter the Name</div>
+            </div> 
+          </div>
+    
+          <div class="form-group">
+            <label for="inputCode">Code</label>
+            <input type="code" [(ngModel)]="productform.code" name="code" class="form-control" 
+             id="inputCode" placeholder="Code" formControlName = 'code'>
+             <div *ngIf="!userForm.get('code').valid && (userForm.get('code').touched)">
+                <div class="alert alert-danger" *ngIf="userForm.get('code').errors.required">Please Enter the Code</div>
+              </div> 
+          </div>
+        
+    
+        <div class="form-group">
+          <label for="inputdescription">Description</label>
+          <input type="text" class="form-control" [(ngModel)]="productform.description" name="description"
+           id="inputdescription" placeholder="Description" formControlName = 'description' >
+           <div *ngIf="!userForm.get('description').valid && (userForm.get('description').touched)">
+              <div class="alert alert-danger" *ngIf="userForm.get('description').errors.required">Please Enter the Description</div>
+          </div> 
+        </div>
+       
+       
+          <div class="form-group">
+            <label for="inputAvailability">Availability</label>
+            <input type="text" class="form-control" [(ngModel)]="productform.availability" name="availability"
+             id="inputAvailability" placeholder="Date" formControlName = 'availability'>
+             <div *ngIf="!userForm.get('availability').valid && (userForm.get('availability').touched)">
+                <div class="alert alert-danger" *ngIf="userForm.get('availability').errors.required">Please Enter the Availability</div>
+            </div> 
+          </div>
+
+          <div class="form-group">
+            <label for="inputPrice">Price</label>
+            <input type="text" class="form-control" [(ngModel)]="productform.price" name="price"
+             id="inputPrice" placeholder="$" formControlName = 'price'>
+             <div *ngIf="!userForm.get('price').valid && (userForm.get('price').touched)">
+                <div class="alert alert-danger" *ngIf="userForm.get('price').errors.required">Please Enter the Price</div>
+            </div> 
+          </div>
+
+          <div class="form-group">
+            <label for="inputrating">5 Star Rating</label>
+            <input type="text" [(ngModel)]="productform.starRating" name="starRating" class="form-control" id="inputrating" formControlName = 'starRating'>
+            <div *ngIf="!userForm.get('starRating').valid && (userForm.get('starRating').touched)">
+                <div class="alert alert-danger" *ngIf="userForm.get('starRating').errors.required">Please Enter the ratings</div>
+            </div> 
+          </div>
+
+          <div class="form-group">
+              <label for="inputrating">Product Id</label>
+              <input type="text" [(ngModel)]="productform.productId" name="starRating" class="form-control" id="inputrating" formControlName = 'starRating'>
+              <!-- <div *ngIf="!userForm.get('starRating').valid && (userForm.get('starRating').touched)">
+                  <div class="alert alert-danger" *ngIf="userForm.get('starRating').errors.required">Please Enter the ratings</div>
+              </div>  -->
+            </div>
+
+            <div class="form-group">
+                <label for="inputUrl">Image Url</label>
+                <input type="text" [(ngModel)]="productform.imageUrl" name="imageUrl" class="form-control" id="imageUrl" formControlName = 'starRating'>
+            </div>
+
+        
+        <button [disabled]="!userForm.valid" (click) = "addProduct(productform)" class="btn btn-primary">Add Product</button>
+      </form>
+    </div>
+    </div>
+      </div>
+    
